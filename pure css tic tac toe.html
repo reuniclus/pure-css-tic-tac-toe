@@ -1,0 +1,348 @@
+﻿<html>
+	<head>
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+* {
+box-sizing:border-box;
+   -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+*:focus {
+	outline: none;
+}
+
+body {
+font-family:raleway;
+text-align:center;
+}
+
+/* STYLE */ 
+
+input {
+font-size:30px;
+background:#ffeeff;
+border:0.25em #fff solid;
+padding:1em 0;
+text-align:center;
+margin:6em calc(50% - 6em);
+-webkit-appearance:none;
+position:absolute;
+width:4em;
+height:4em;
+}
+
+input:focus {
+-webkit-animation:shake 0.12s linear 0s 1 normal; 
+	animation: shake 0.12s linear 0s 1 normal;}
+
+@-webkit-keyframes shake {
+    0% {margin:6em calc(50% - 6em);}
+   50% {margin:6em calc(50% - 6.3em);}
+   75% {margin:6em calc(50% - 5.8em);}
+   100% {margin:6em calc(50% - 6.1em);}
+}
+
+@keyframes shake {
+    0% {margin:6em calc(50% - 6em);}
+   50% {margin:6em calc(50% - 6.3em);}
+   75% {margin:6em calc(50% - 5.8em);}
+   100% {margin:6em calc(50% - 6.1em);}
+}
+
+/*Win message*/
+input[id^="t"]::before, #t9:checked::before {
+	font-family:Raleway;
+	font-weight:900;
+	display:block;
+	position:fixed;
+	z-index:11;
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	background:rgba(252,252,252,0.5);
+	color: #333;
+	font-size: 2em;
+	text-align: center;
+	padding:1.7em 0;
+}
+
+.p2 {
+background:#ffffcc;
+}
+
+.p1:checked {
+background:#ccffff;
+}
+
+.p2:checked {
+background:#ccffcc;
+}
+
+.left {left:0;}
+.middle {left:4em;}
+.right  {left:8em;}
+.top {top:0;}
+.mid {top: 4em;}
+.bottom {top:8em;}
+
+/* FUNCTIONALITY */
+
+input[id^="t"] {display:none;}
+#t1 {z-index:1; display:block;}
+#t2 {z-index:2;}
+#t3 {z-index:3;}
+#t4 {z-index:4;}
+#t5 {z-index:5;}
+#t6 {z-index:6;}
+#t7 {z-index:7;}
+#t8 {z-index:8;}
+#t9 {z-index:9;}
+
+#t1:checked ~ #t2,#t2:checked ~ #t3,#t3:checked ~ #t4,#t4:checked ~ #t5,#t5:checked ~ #t6,#t6:checked ~ #t7,#t7:checked ~ #t8,#t8:checked ~ #t9  {
+display:block;
+}
+
+input[id^="t"]:checked {z-index:10!important;}
+
+.p1:checked::after {
+content:"╳";
+}
+
+.p2:checked::after {
+content:"◯";
+}
+
+/* WINNING MESSAGES */
+
+#t9:checked::before {
+	content:"Tie.";
+}
+
+/* PLAYER 1 */
+/*COLUMNS*/
+.p1.top.left:checked ~ .p1.mid.left:checked ~ .p1.bottom.left:checked::before,
+.p1.top.left:checked ~ .p1.bottom.left:checked ~ .p1.mid.left:checked::before,
+.p1.mid.left:checked ~ .p1.top.left:checked ~ .p1.bottom.left:checked::before,
+.p1.mid.left:checked ~ .p1.bottom.left:checked ~ .p1.top.left:checked::before,
+.p1.bottom.left:checked ~ .p1.top.left:checked ~ .p1.mid.left:checked::before,
+.p1.bottom.left:checked ~ .p1.mid.left:checked ~ .p1.top.left:checked::before,
+
+.p1.top.middle:checked ~ .p1.mid.middle:checked ~ .p1.bottom.middle:checked::before,
+.p1.top.middle:checked ~ .p1.bottom.middle:checked ~ .p1.mid.middle:checked::before,
+.p1.mid.middle:checked ~ .p1.top.middle:checked ~ .p1.bottom.middle:checked::before,
+.p1.mid.middle:checked ~ .p1.bottom.middle:checked ~ .p1.top.middle:checked::before,
+.p1.bottom.middle:checked ~ .p1.top.middle:checked ~ .p1.mid.middle:checked::before,
+.p1.bottom.middle:checked ~ .p1.mid.middle:checked ~ .p1.top.middle:checked::before,
+
+.p1.top.right:checked ~ .p1.mid.right:checked ~ .p1.bottom.right:checked::before,
+.p1.top.right:checked ~ .p1.bottom.right:checked ~ .p1.mid.right:checked::before,
+.p1.mid.right:checked ~ .p1.top.right:checked ~ .p1.bottom.right:checked::before,
+.p1.mid.right:checked ~ .p1.bottom.right:checked ~ .p1.top.right:checked::before,
+.p1.bottom.right:checked ~ .p1.top.right:checked ~ .p1.mid.right:checked::before,
+.p1.bottom.right:checked ~ .p1.mid.right:checked ~ .p1.top.right:checked::before,
+
+/*ROWS*/
+.p1.top.left:checked ~ .p1.top.middle:checked ~ .p1.top.right:checked::before,
+.p1.top.left:checked ~ .p1.top.right:checked ~ .p1.top.middle:checked::before,
+.p1.top.middle:checked ~ .p1.top.left:checked ~ .p1.top.right:checked::before,
+.p1.top.middle:checked ~ .p1.top.right:checked ~ .p1.top.left:checked::before,
+.p1.top.right:checked ~ .p1.top.left:checked ~ .p1.top.middle:checked::before,
+.p1.top.right:checked ~ .p1.top.middle:checked ~ .p1.top.left:checked::before,
+
+.p1.mid.left:checked ~ .p1.mid.middle:checked ~ .p1.mid.right:checked::before,
+.p1.mid.left:checked ~ .p1.mid.right:checked ~ .p1.mid.middle:checked::before,
+.p1.mid.middle:checked ~ .p1.mid.left:checked ~ .p1.mid.right:checked::before,
+.p1.mid.middle:checked ~ .p1.mid.right:checked ~ .p1.mid.left:checked::before,
+.p1.mid.right:checked ~ .p1.mid.left:checked ~ .p1.mid.middle:checked::before,
+.p1.mid.right:checked ~ .p1.mid.middle:checked ~ .p1.mid.left:checked::before,
+
+.p1.bottom.left:checked ~ .p1.bottom.middle:checked ~ .p1.bottom.right:checked::before,
+.p1.bottom.left:checked ~ .p1.bottom.right:checked ~ .p1.bottom.middle:checked::before,
+.p1.bottom.middle:checked ~ .p1.bottom.left:checked ~ .p1.bottom.right:checked::before,
+.p1.bottom.middle:checked ~ .p1.bottom.right:checked ~ .p1.bottom.left:checked::before,
+.p1.bottom.right:checked ~ .p1.bottom.left:checked ~ .p1.bottom.middle:checked::before,
+.p1.bottom.right:checked ~ .p1.bottom.middle:checked ~ .p1.bottom.left:checked::before,
+
+/*DIAGONALS*/
+.p1.top.left:checked ~ .p1.mid.middle:checked ~ .p1.bottom.right:checked::before,
+.p1.top.left:checked ~ .p1.bottom.right:checked ~ .p1.mid.middle:checked::before,
+.p1.mid.middle:checked ~ .p1.top.left:checked ~ .p1.bottom.right:checked::before,
+.p1.mid.middle:checked ~ .p1.bottom.right:checked ~ .p1.top.left:checked::before,
+.p1.bottom.right:checked ~ .p1.top.left:checked ~ .p1.mid.middle:checked::before,
+.p1.bottom.right:checked ~ .p1.mid.middle:checked ~ .p1.top.left:checked::before,
+
+.p1.top.right:checked ~ .p1.mid.middle:checked ~ .p1.bottom.left:checked::before,
+.p1.top.right:checked ~ .p1.bottom.left:checked ~ .p1.mid.middle:checked::before,
+.p1.mid.middle:checked ~ .p1.top.right:checked ~ .p1.bottom.left:checked::before,
+.p1.mid.middle:checked ~ .p1.bottom.left:checked ~ .p1.top.right:checked::before,
+.p1.bottom.left:checked ~ .p1.top.right:checked ~ .p1.mid.middle:checked::before,
+.p1.bottom.left:checked ~ .p1.mid.middle:checked ~ .p1.top.right:checked::before
+
+
+
+{content:"player 1 wins!"!important;}
+
+/* PLAYER 2 */
+
+/*COLUMNS*/
+.p2.top.left:checked ~ .p2.mid.left:checked ~ .p2.bottom.left:checked::before,
+.p2.top.left:checked ~ .p2.bottom.left:checked ~ .p2.mid.left:checked::before,
+.p2.mid.left:checked ~ .p2.top.left:checked ~ .p2.bottom.left:checked::before,
+.p2.mid.left:checked ~ .p2.bottom.left:checked ~ .p2.top.left:checked::before,
+.p2.bottom.left:checked ~ .p2.top.left:checked ~ .p2.mid.left:checked::before,
+.p2.bottom.left:checked ~ .p2.mid.left:checked ~ .p2.top.left:checked::before,
+
+.p2.top.middle:checked ~ .p2.mid.middle:checked ~ .p2.bottom.middle:checked::before,
+.p2.top.middle:checked ~ .p2.bottom.middle:checked ~ .p2.mid.middle:checked::before,
+.p2.mid.middle:checked ~ .p2.top.middle:checked ~ .p2.bottom.middle:checked::before,
+.p2.mid.middle:checked ~ .p2.bottom.middle:checked ~ .p2.top.middle:checked::before,
+.p2.bottom.middle:checked ~ .p2.top.middle:checked ~ .p2.mid.middle:checked::before,
+.p2.bottom.middle:checked ~ .p2.mid.middle:checked ~ .p2.top.middle:checked::before,
+
+.p2.top.right:checked ~ .p2.mid.right:checked ~ .p2.bottom.right:checked::before,
+.p2.top.right:checked ~ .p2.bottom.right:checked ~ .p2.mid.right:checked::before,
+.p2.mid.right:checked ~ .p2.top.right:checked ~ .p2.bottom.right:checked::before,
+.p2.mid.right:checked ~ .p2.bottom.right:checked ~ .p2.top.right:checked::before,
+.p2.bottom.right:checked ~ .p2.top.right:checked ~ .p2.mid.right:checked::before,
+.p2.bottom.right:checked ~ .p2.mid.right:checked ~ .p2.top.right:checked::before,
+
+/*ROWS*/
+.p2.top.left:checked ~ .p2.top.middle:checked ~ .p2.top.right:checked::before,
+.p2.top.left:checked ~ .p2.top.right:checked ~ .p2.top.middle:checked::before,
+.p2.top.middle:checked ~ .p2.top.left:checked ~ .p2.top.right:checked::before,
+.p2.top.middle:checked ~ .p2.top.right:checked ~ .p2.top.left:checked::before,
+.p2.top.right:checked ~ .p2.top.left:checked ~ .p2.top.middle:checked::before,
+.p2.top.right:checked ~ .p2.top.middle:checked ~ .p2.top.left:checked::before,
+
+.p2.mid.left:checked ~ .p2.mid.middle:checked ~ .p2.mid.right:checked::before,
+.p2.mid.left:checked ~ .p2.mid.right:checked ~ .p2.mid.middle:checked::before,
+.p2.mid.middle:checked ~ .p2.mid.left:checked ~ .p2.mid.right:checked::before,
+.p2.mid.middle:checked ~ .p2.mid.right:checked ~ .p2.mid.left:checked::before,
+.p2.mid.right:checked ~ .p2.mid.left:checked ~ .p2.mid.middle:checked::before,
+.p2.mid.right:checked ~ .p2.mid.middle:checked ~ .p2.mid.left:checked::before,
+
+.p2.bottom.left:checked ~ .p2.bottom.middle:checked ~ .p2.bottom.right:checked::before,
+.p2.bottom.left:checked ~ .p2.bottom.right:checked ~ .p2.bottom.middle:checked::before,
+.p2.bottom.middle:checked ~ .p2.bottom.left:checked ~ .p2.bottom.right:checked::before,
+.p2.bottom.middle:checked ~ .p2.bottom.right:checked ~ .p2.bottom.left:checked::before,
+.p2.bottom.right:checked ~ .p2.bottom.left:checked ~ .p2.bottom.middle:checked::before,
+.p2.bottom.right:checked ~ .p2.bottom.middle:checked ~ .p2.bottom.left:checked::before,
+
+/*DIAGONALS*/
+.p2.top.left:checked ~ .p2.mid.middle:checked ~ .p2.bottom.right:checked::before,
+.p2.top.left:checked ~ .p2.bottom.right:checked ~ .p2.mid.middle:checked::before,
+.p2.mid.middle:checked ~ .p2.top.left:checked ~ .p2.bottom.right:checked::before,
+.p2.mid.middle:checked ~ .p2.bottom.right:checked ~ .p2.top.left:checked::before,
+.p2.bottom.right:checked ~ .p2.top.left:checked ~ .p2.mid.middle:checked::before,
+.p2.bottom.right:checked ~ .p2.mid.middle:checked ~ .p2.top.left:checked::before,
+
+.p2.top.right:checked ~ .p2.mid.middle:checked ~ .p2.bottom.left:checked::before,
+.p2.top.right:checked ~ .p2.bottom.left:checked ~ .p2.mid.middle:checked::before,
+.p2.mid.middle:checked ~ .p2.top.right:checked ~ .p2.bottom.left:checked::before,
+.p2.mid.middle:checked ~ .p2.bottom.left:checked ~ .p2.top.right:checked::before,
+.p2.bottom.left:checked ~ .p2.top.right:checked ~ .p2.mid.middle:checked::before,
+.p2.bottom.left:checked ~ .p2.mid.middle:checked ~ .p2.top.right:checked::before
+
+{content:"player 2 wins!"!important;}
+	</style>
+	</head>
+	<body>
+<br><br>
+<h1> Pure CSS Tic Tac Toe</h3>
+
+      <input type="radio" class="top left p1" id="t1"> 
+      <input type="radio" class="top middle p1" id="t1"> 
+      <input type="radio" class="top right p1" id="t1"> 
+      <input type="radio" class="mid left p1" id="t1"> 
+      <input type="radio" class="mid middle p1" id="t1"> 
+      <input type="radio" class="mid right p1" id="t1"> 
+      <input type="radio" class="bottom left p1" id="t1"> 
+      <input type="radio" class="bottom middle p1" id="t1"> 
+      <input type="radio" class="bottom right p1" id="t1"> 
+
+      <input type="radio" class="top left p2" id="t2"> 
+      <input type="radio" class="top middle p2" id="t2"> 
+      <input type="radio" class="top right p2" id="t2"> 
+      <input type="radio" class="mid left p2" id="t2"> 
+      <input type="radio" class="mid middle p2" id="t2"> 
+      <input type="radio" class="mid right p2" id="t2"> 
+      <input type="radio" class="bottom left p2" id="t2"> 
+      <input type="radio" class="bottom middle p2" id="t2"> 
+      <input type="radio" class="bottom right p2" id="t2"> 
+
+      <input type="radio" class="top left p1" id="t3"> 
+      <input type="radio" class="top middle p1" id="t3"> 
+      <input type="radio" class="top right p1" id="t3"> 
+      <input type="radio" class="mid left p1" id="t3"> 
+      <input type="radio" class="mid middle p1" id="t3"> 
+      <input type="radio" class="mid right p1" id="t3"> 
+      <input type="radio" class="bottom left p1" id="t3"> 
+      <input type="radio" class="bottom middle p1" id="t3"> 
+      <input type="radio" class="bottom right p1" id="t3"> 
+
+      <input type="radio" class="top left p2" id="t4"> 
+      <input type="radio" class="top middle p2" id="t4"> 
+      <input type="radio" class="top right p2" id="t4"> 
+      <input type="radio" class="mid left p2" id="t4"> 
+      <input type="radio" class="mid middle p2" id="t4"> 
+      <input type="radio" class="mid right p2" id="t4"> 
+      <input type="radio" class="bottom left p2" id="t4"> 
+      <input type="radio" class="bottom middle p2" id="t4"> 
+      <input type="radio" class="bottom right p2" id="t4"> 
+
+      <input type="radio" class="top left p1" id="t5"> 
+      <input type="radio" class="top middle p1" id="t5"> 
+      <input type="radio" class="top right p1" id="t5"> 
+      <input type="radio" class="mid left p1" id="t5"> 
+      <input type="radio" class="mid middle p1" id="t5"> 
+      <input type="radio" class="mid right p1" id="t5"> 
+      <input type="radio" class="bottom left p1" id="t5"> 
+      <input type="radio" class="bottom middle p1" id="t5"> 
+      <input type="radio" class="bottom right p1" id="t5"> 
+
+      <input type="radio" class="top left p2" id="t6"> 
+      <input type="radio" class="top middle p2" id="t6"> 
+      <input type="radio" class="top right p2" id="t6"> 
+      <input type="radio" class="mid left p2" id="t6"> 
+      <input type="radio" class="mid middle p2" id="t6"> 
+      <input type="radio" class="mid right p2" id="t6"> 
+      <input type="radio" class="bottom left p2" id="t6"> 
+      <input type="radio" class="bottom middle p2" id="t6"> 
+      <input type="radio" class="bottom right p2" id="t6"> 
+
+      <input type="radio" class="top left p1" id="t7"> 
+      <input type="radio" class="top middle p1" id="t7"> 
+      <input type="radio" class="top right p1" id="t7"> 
+      <input type="radio" class="mid left p1" id="t7"> 
+      <input type="radio" class="mid middle p1" id="t7"> 
+      <input type="radio" class="mid right p1" id="t7"> 
+      <input type="radio" class="bottom left p1" id="t7"> 
+      <input type="radio" class="bottom middle p1" id="t7"> 
+      <input type="radio" class="bottom right p1" id="t7"> 
+
+      <input type="radio" class="top left p2" id="t8"> 
+      <input type="radio" class="top middle p2" id="t8"> 
+      <input type="radio" class="top right p2" id="t8"> 
+      <input type="radio" class="mid left p2" id="t8"> 
+      <input type="radio" class="mid middle p2" id="t8"> 
+      <input type="radio" class="mid right p2" id="t8"> 
+      <input type="radio" class="bottom left p2" id="t8"> 
+      <input type="radio" class="bottom middle p2" id="t8"> 
+      <input type="radio" class="bottom right p2" id="t8">
+
+      <input type="radio" class="top left p1" id="t9"> 
+      <input type="radio" class="top middle p1" id="t9"> 
+      <input type="radio" class="top right p1" id="t9"> 
+      <input type="radio" class="mid left p1" id="t9"> 
+      <input type="radio" class="mid middle p1" id="t9"> 
+      <input type="radio" class="mid right p1" id="t9"> 
+      <input type="radio" class="bottom left p1" id="t9"> 
+      <input type="radio" class="bottom middle p1" id="t9"> 
+      <input type="radio" class="bottom right p1" id="t9"> 
+	</body>
+</html>
